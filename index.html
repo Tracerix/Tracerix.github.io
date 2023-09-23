@@ -7,25 +7,31 @@
     body {
       margin: 0;
       overflow: hidden;
-      font-family: Arial, sans-serif;
+      background-color: black;
     }
 
-    #hi-text {
+    #canvas {
       position: absolute;
-      font-size: 24px;
+      top: 0;
+      left: 0;
     }
   </style>
   <title>ywvi</title>
 </head>
 <body>
-  <div id="hi-text"></div>
+  <canvas id="canvas"></canvas>
 
   <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
     document.addEventListener('mousemove', (event) => {
-      const hiText = document.getElementById('hi-text');
-      hiText.style.left = `${event.clientX}px`;
-      hiText.style.top = `${event.clientY}px`;
-      hiText.textContent = 'ywvi';
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = '24px Arial';
+      ctx.fillStyle = 'white';
+      ctx.fillText('ywvi', event.clientX, event.clientY);
     });
   </script>
 </body>
