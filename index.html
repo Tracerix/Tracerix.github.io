@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -13,10 +14,11 @@
     .hi-text {
       position: absolute;
       font-size: 24px;
+      font-family: 'Roboto', sans-serif; 
       color: white;
     }
   </style>
-  <title>Mouse Hover Text</title>
+  <title>ywvi</title>
 </head>
 <body>
 
@@ -26,7 +28,7 @@
     document.addEventListener('mousemove', (event) => {
       const hiText = document.createElement('div');
       hiText.className = 'hi-text';
-      hiText.textContent = 'Hi';
+      hiText.textContent = 'ywvi';
       hiText.style.left = `${event.clientX}px`;
       hiText.style.top = `${event.clientY}px`;
       document.body.appendChild(hiText);
@@ -34,16 +36,16 @@
       hiTextElements.push(hiText);
     });
 
-    // Update text positions every frame
+    
     function updateTextPositions() {
       for (const hiText of hiTextElements) {
-        // Optional: Modify text positions or styles here if needed
+        
       }
 
       requestAnimationFrame(updateTextPositions);
     }
 
-    // Start updating text positions
+    
     updateTextPositions();
   </script>
 </body>
