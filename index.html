@@ -7,26 +7,27 @@
     body {
       margin: 0;
       overflow: hidden;
-      font-family: Arial, sans-serif;
+      background-color: black;
     }
 
-    #hi-text {
+    .hi-text {
       position: absolute;
       font-size: 24px;
+      color: white;
     }
   </style>
-  <title>ywvi</title>
+  <title>Mouse Hover Text</title>
 </head>
 <body>
-  <div id="hi-text"></div>
-
+  
   <script>
     document.addEventListener('mousemove', (event) => {
-      const hiText = document.getElementById('hi-text');
+      const hiText = document.createElement('div');
+      hiText.className = 'hi-text';
+      hiText.textContent = 'Hi';
       hiText.style.left = `${event.clientX}px`;
       hiText.style.top = `${event.clientY}px`;
-      hiText.textContent = 'ywvi';
-    });
+      document.body.appendChild(hiText);
   </script>
 </body>
 </html>
