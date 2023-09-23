@@ -19,8 +19,10 @@
   <title>Mouse Hover Text</title>
 </head>
 <body>
-  
+
   <script>
+    const hiTextElements = [];
+
     document.addEventListener('mousemove', (event) => {
       const hiText = document.createElement('div');
       hiText.className = 'hi-text';
@@ -28,6 +30,26 @@
       hiText.style.left = `${event.clientX}px`;
       hiText.style.top = `${event.clientY}px`;
       document.body.appendChild(hiText);
+
+      hiTextElements.push({
+        element: hiText,
+        x: event.clientX,
+        y: event.clientY
+      });
+    });
+
+    // Update text positions every frame
+    function updateTextPositions() {
+      for (const hiText of hiTextElements) {
+        hiText.element.style.left = `${hiText.x}px`;
+        hiText.element.style.top = `${hiText.y}px`;
+      }
+
+      requestAnimationFrame(updateTextPositions);
+    }
+
+    // Start updating text positions
+    updateTextPositions();
   </script>
 </body>
 </html>
