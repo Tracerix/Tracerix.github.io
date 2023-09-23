@@ -31,18 +31,13 @@
       hiText.style.top = `${event.clientY}px`;
       document.body.appendChild(hiText);
 
-      hiTextElements.push({
-        element: hiText,
-        x: event.clientX,
-        y: event.clientY
-      });
+      hiTextElements.push(hiText);
     });
 
     // Update text positions every frame
     function updateTextPositions() {
       for (const hiText of hiTextElements) {
-        hiText.element.style.left = `${hiText.x}px`;
-        hiText.element.style.top = `${hiText.y}px`;
+        // Optional: Modify text positions or styles here if needed
       }
 
       requestAnimationFrame(updateTextPositions);
